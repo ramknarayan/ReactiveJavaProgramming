@@ -13,7 +13,7 @@ public class Lec01FluxJust {
     public static void main(String[] args) {
       Flux.just("TEsting")
                 .subscribe(Util.subscriber());
-       
+
     }
 
 

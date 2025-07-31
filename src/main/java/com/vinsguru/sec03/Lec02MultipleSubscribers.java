@@ -3,7 +3,8 @@ package com.vinsguru.sec03;
 import com.vinsguru.common.Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
+
 
 
 public class Lec02MultipleSubscribers {
@@ -11,16 +12,17 @@ public class Lec02MultipleSubscribers {
 
     public static void main(String[] args) {
 
+        var flux = Flux.just(1,2,3,4,5,6);
+
+        flux.subscribe(Util.subscriber("sub1"));
+        flux.filter(i -> i > 7)
+                .subscribe(Util.subscriber("sub2"));
+        flux
+                .filter(i -> i % 2 == 0)
+                .map(i -> i + "a")
+                .subscribe(Util.subscriber("sub3"));
 
     }
 
-    private static Mono<String> getProductName(int productid){
-        if(productid==1){
-            return Mono.fromSupplier(()->Util.faker().commerce().productName());
-        }
-        return Mono.fromRunnable(()->notifyBusiness(productid));
-    }
-    private static  void notifyBusiness(int productid){
-        log.info("notifying business on unavailable product {}",productid);
-    }
+
 }
