@@ -6,13 +6,7 @@ import reactor.core.publisher.Mono;
 
 public class ExternalServiceClient extends AbstractHttPClient {
 
-    public Flux<String> getNames(){
-        return this.httpClient.get()
-                .uri("/demo02/name/stream")
-                .responseContent()
-                .asString();
 
-    }
 
     public Flux<String> getNames(){
         return this.httpClient.get()
