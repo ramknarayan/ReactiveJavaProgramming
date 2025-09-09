@@ -30,7 +30,6 @@ public class Lec03MultipleSubscribers {
                 .publishOn(Schedulers.boundedElastic())
                 .subscribe(Util.subscriber());
 
-        .
         Util.sleepSeconds(60);
     }
     private static int timeConsumingTask(int i){
