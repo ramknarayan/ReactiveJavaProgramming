@@ -5,9 +5,7 @@ import reactor.core.publisher.Flux;
 
 import java.time.Duration;
 
-/*
-    Collect items based on given internal / size
- */
+
 public class Lec01Buffer {
 
     public static void main(String[] args) {
