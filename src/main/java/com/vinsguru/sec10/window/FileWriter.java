@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-// just for demo
+
 public class FileWriter {
 
     private final Path path;
@@ -34,7 +34,7 @@ public class FileWriter {
         }
     }
 
-    // just for demo
+
     private void write(String content) {
         try {
             this.writer.write(content);
